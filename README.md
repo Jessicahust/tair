@@ -13,12 +13,12 @@ Maybe the best choice to serve as cache or persistent-kv service in credible env
 
 * get and deploy tair
 
-see: http://code.taobao.org/trac/tair/wiki/ZhWikiStart 
+ - see: http://code.taobao.org/trac/tair/wiki/ZhWikiStart 
 
 * Contribution
 
-The source code is available user the GPL version 2.   
-We are avtively looking for contributors so if you have any ideas, bug reports, or patchs you would like to contribute please do not hesitate to do so.
+ - The source code is available user the GPL version 2.   
+   We are avtively looking for contributors so if you have any ideas, bug reports, or patchs you would like to contribute please do not hesitate to do so.
 
 * Roadmap
-- use seastar as network framework. The original network framework tair uses is libeasy which is not opensource.
+ - use seastar as network framework. The original network framework tair uses is libeasy which is not opensource.

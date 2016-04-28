@@ -1,13 +1,15 @@
-Tair is a distributed key-value storage system originally developed at Taobao.com.
+Tair is a distributed key-value storage system originally developed at www.taobao.com.  
+Maybe the best choice to serve as cache or persistent-kv service in credible enviroment as tair provide no security related feature.
 
 * features:
 
  - simple client configuration thanks to lightweight config server
- - items are versioned to avoid data inconsistencies due to concurrent update
- - supprt for atomic counter 
- - support for pluggable storage engine
+ - support for atomic counter 
  - data is automatically partitioned and replicated over whole cluster
  - server failure is handled transparently
+ - realtime data sync between clusters which may deploy in different areas
+ - excellent support multi-appliction scenario
+ - flow control base on qps/bandwidth
 
 * get and deploy tair
 
@@ -15,4 +17,8 @@ see: http://code.taobao.org/trac/tair/wiki/ZhWikiStart
 
 * Contribution
 
-The source code is available user the GPL version 2. We are avtively looking for contributors so if you have any ideas, bug reports, or patchs you would like to contribute please do not hesitate to do so.
+The source code is available user the GPL version 2.   
+We are avtively looking for contributors so if you have any ideas, bug reports, or patchs you would like to contribute please do not hesitate to do so.
+
+* Roadmap
+- use seastar as network framework. The original network framework tair uses is libeasy which is not opensource.

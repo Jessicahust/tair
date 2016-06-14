@@ -111,7 +111,7 @@ namespace System {
     class HttpWebRequest
     {
       public:
-        typedef struct {
+        typedef struct method {
           const static std::string POST;
           const static std::string GET;
           const static std::string DELETE;

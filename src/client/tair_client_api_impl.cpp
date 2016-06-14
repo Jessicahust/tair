@@ -3770,7 +3770,7 @@ FAIL:
        {
          const response_statistics* resp = *it;
 
-         bool get_statistics_success = true;
+         // bool get_statistics_success = true;
          if (deschema_->get_version() == resp->get_version())
          {
            int32_t data_len = 0;
@@ -3786,7 +3786,7 @@ FAIL:
              {
                log_error("client schema with version %d deserialize the statistics data of dataserver %s with schema version %d failed",
                          deschema_->get_version(), tbsys::CNetUtil::addrToString(dataserver_id).c_str(), resp->get_version());
-               get_statistics_success = false;
+               // get_statistics_success = false;
                tmp_stat.erase(dataserver_id);
              }
              delete[] data;

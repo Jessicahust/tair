@@ -1,8 +1,5 @@
-if TEST_OPT
-TEST = test
-endif
 SUBDIRS=src scripts share $(TEST)
-DIST_SUBDIRS = src scripts share test
+DIST_SUBDIRS = src scripts share
 
 utest: check
 

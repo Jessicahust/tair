@@ -547,7 +547,7 @@ namespace tair
       }
       void reset()
       {
-        memset(data_, byte_size(), 0);
+        memset(data_, 0, byte_size());
       }
       void reset(int32_t p)
       {

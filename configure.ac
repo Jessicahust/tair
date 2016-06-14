@@ -216,18 +216,7 @@ AC_CONFIG_FILES([\
      src/configserver/Makefile \
      src/dataserver/Makefile \
      src/client/Makefile \
-     src/adminserver/Makefile \
      src/tools/Makefile \
-     test/Makefile \
-     test/interface_test/Makefile \
-     test/unit_test/Makefile \
-     test/statistics_test/Makefile \
-     test/retry_all_test/Makefile \
-     test/tair_mc_client_api_test/Makefile \
-     test/local_cache_test/Makefile \
-     test/rsync_unit_test/Makefile \
-     test/rsync_function_test/Makefile \
-     test/configserver_test/Makefile \
      scripts/Makefile \
      share/Makefile
      ])

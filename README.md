@@ -21,4 +21,5 @@ Maybe the best choice to serve as cache or persistent-kv service in credible env
    We are avtively looking for contributors so if you have any ideas, bug reports, or patchs you would like to contribute please do not hesitate to do so.
 
 * Roadmap
- - use seastar as network framework. The original network framework tair uses is libeasy which is not opensource.
+ - use kiwi as network framework.
+   The original network framework tair uses is [libeasy](https://github.com/alibaba/oceanbase/tree/master/oceanbase_0.4/libeasy_rpm) which is not opensource

@@ -16,9 +16,6 @@
  *     - add easy
  *
  */
-#ifdef WITH_KDB
-#include "storage/kdb/kdb_manager.h"
-#endif
 #ifdef WITH_LDB
 #include "storage/ldb/ldb_manager.hpp"
 #endif

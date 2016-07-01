@@ -33,6 +33,7 @@ Makefile.in
 /stamp-h1
 .deps
 .libs
+tags
 
 src/client/keycleantool
 src/client/manipulate_ds_to_cs
@@ -77,3 +78,4 @@ src/tools/dump_transfer
 src/tools/lens
 src/tools/mtair
 src/tools/parse_admin_conf
+

@@ -1,4 +1,4 @@
-AC_INIT([tair], [3.2.4], [zongdai@taobao.com])
+AC_INIT([tair], [4.0.0], [lotair@hotmail.com])
 dnl 2.3.2.3: ldb balance & split memtable per bucket etc. SVN 1408
 
 AM_INIT_AUTOMAKE([foreign])
@@ -143,18 +143,6 @@ AS_IF([test x$with_diamond = xyes],
   [ CXXFLAGS="${CXXFLAGS} -DWITH_DIAMOND" ],)
 AM_CONDITIONAL([WITH_DIAMOND],[test x$with_diamond = xyes])
 
-AC_ARG_WITH([kdb],
-    AS_HELP_STRING([--with-kdb],
-      [with kdb (default is yes)]),
-    [
-    if test "$withval" = "yes"; then
-    with_kdb=yes
-    fi
-    ],
-    [ with_kdb=yes ]
-     )
-AM_CONDITIONAL([WITH_KDB],[test x$with_kdb = xyes])
-
 AC_ARG_WITH([ldb],
     AS_HELP_STRING([--with-ldb],
       [with ldb (default is YES)]), [
@@ -203,10 +191,7 @@ AC_CONFIG_FILES([\
      src/common/Makefile \
      src/plugin/Makefile \
      src/storage/Makefile \
-     src/storage/fdb/Makefile \
      src/storage/mdb/Makefile \
-     src/storage/kdb/Makefile \
-     src/storage/kdb/kyotocabinet/Makefile \
      src/storage/ldb/Makefile \
      src/storage/ldb/tools/Makefile \
      src/packets/Makefile \

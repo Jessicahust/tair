@@ -1,4 +1,4 @@
-AC_INIT([tair], [3.2.4], [zongdai@taobao.com])
+AC_INIT([tair], [4.0.0], [lotair@hotmail.com])
 dnl 2.3.2.3: ldb balance & split memtable per bucket etc. SVN 1408
 
 AM_INIT_AUTOMAKE([foreign])
@@ -191,7 +191,6 @@ AC_CONFIG_FILES([\
      src/common/Makefile \
      src/plugin/Makefile \
      src/storage/Makefile \
-     src/storage/fdb/Makefile \
      src/storage/mdb/Makefile \
      src/storage/ldb/Makefile \
      src/storage/ldb/tools/Makefile \

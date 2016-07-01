@@ -15,7 +15,7 @@
 #ifndef TAIR_DUMP_FILTER
 #define TAIR_DUMP_FILTER
 #include "data_entry.hpp"
-#include "fdb/file_op.hpp"
+#include "dataserver/file_op.hpp"
 namespace tair {
   namespace storage {
     using namespace tair::common;
@@ -42,7 +42,7 @@ namespace tair {
       int32_t area;                //-1 means all
       std::string out_data_dir;
     private:
-      fdb::file_operation file_op;
+      tair::file_operation file_op;
       std::string file_name;
       friend class dump_thread;
     };

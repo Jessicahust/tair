@@ -26,7 +26,6 @@
 namespace tair {
 
    using namespace std;
-   using namespace tair::storage::fdb;
    using namespace __gnu_cxx;
 
    static const size_t LOG_PAGE_HDR_SIZE = align_round(offsetof(log_file_control_page, pad));

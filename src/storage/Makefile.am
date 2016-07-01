@@ -1,11 +1,8 @@
-if WITH_KDB 
-KDB=kdb 
-endif
 if WITH_LDB
 LDB=ldb
 endif
 SUBDIRS=mdb $(KDB) $(LDB)
-DIST_SUBDIRS=mdb fdb kdb ldb
+DIST_SUBDIRS=mdb fdb ldb
 AM_CPPFLAGS=-I${top_srcdir}/src -I${top_srcdir}/src/common -I$(easy_dir)/include/easy -I$(TBLIB_ROOT)/include/tbsys -I$(top_srcdir)/src/storage/mdb  -I$(top_srcdir)/src/statserver/include -I$(top_srcdir)/src/storage
 LDADD=$(TBLIB_ROOT)/lib/libtbsys.a $(top_builddir)/src/storage/mdb/libmdb.a
 source_list = dump_filter.cpp dump_manager.cpp fdb/file_op.cpp

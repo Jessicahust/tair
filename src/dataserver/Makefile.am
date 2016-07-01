@@ -1,8 +1,4 @@
 #SUBDIRS = modules
-if WITH_KDB
-KDB_CPPFLAGS= -DWITH_KDB -I${top_srcdir}/src/storage/kdb -I${top_srcdir}/src/storage/kdb/kyotocabinet
-KDB_LDFLAGS= $(top_builddir)/src/storage/kdb/libkdb.a $(top_builddir)/src/storage/kdb/kyotocabinet/libkyotocabinet.a
-endif
 if WITH_LDB
 LDB_CPPFLAGS= -DWITH_LDB -I${top_srcdir}/src/storage/ldb
 LDB_LDFLAGS= $(top_builddir)/src/storage/ldb/libldb.a \

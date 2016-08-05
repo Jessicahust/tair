@@ -1,5 +1,4 @@
 AC_INIT([tair], [4.0.0], [lotair@hotmail.com])
-dnl 2.3.2.3: ldb balance & split memtable per bucket etc. SVN 1408
 
 AM_INIT_AUTOMAKE([foreign])
 AC_PROG_CXX
@@ -10,14 +9,6 @@ m4_include([tcmalloc.m4])
 
 BITS=`if [[ 64 -eq $(getconf LONG_BIT) ]]; then echo -n $(getconf LONG_BIT); fi`
 AC_SUBST(BITS)
-
-dnl attain svn info url, depending on `svn(1.4.2) info`'s output format.
-dnl God bless SVN doesn't change its printf.'
-svn_info="NONE"
-if svn info &>/dev/null; then
-  info=`svn info`
-  svn_info=`echo "$info" | awk '/URL/{print $NF}'`"@r"`echo "$info" | awk '/Last Changed Rev/{print $NF}'`
-fi
 
 AC_ARG_WITH([release],
       AS_HELP_STRING([--with-release],
@@ -30,6 +21,12 @@ AC_ARG_WITH([release],
           [CXXFLAGS="-g -Wall -D__USE_LARGEFILE64 -D_FILE_OFFSET_BITS=64 -D_LARGE_FILE  -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DTAIR_DEBUG -D__MIXIN_DEBUG__"]
           )
 
+dnl get get_info base on the format of output of git remote -v
+git_repos=`git remote -v |head -1 |cut -d ' ' -f 1 |cut -f 2`
+git_revision=`git log | head -n 1 | cut  -f 2 -d ' '`
+git_info=$git_repos"@"$git_revision
+CXXFLAGS="${CXXFLAGS} -DTAIR_GIT_INFO=\\\"${git_info}\\\""
+
 AC_ARG_WITH([internaltest],
       AS_HELP_STRING([--with-internaltest],
          [use for internal test(default is NO)]),
@@ -40,17 +37,6 @@ AC_ARG_WITH([internaltest],
           fi
           ])
 AM_CONDITIONAL([WITH_INTERNALTEST],[test x$with_internaltest = xyes])
-
-AC_ARG_WITH([svn],
-      AS_HELP_STRING([--with-svn],
-         [with svn info(default is YES)]),
-         [
-            CXXFLAGS="${CXXFLAGS} -DTAIR_SVN_INFO=\\\"$withval\\\""
-         ],
-         [
-            CXXFLAGS="${CXXFLAGS} -DTAIR_SVN_INFO=\\\"${svn_info}\\\""
-         ]
-         )
 
 GCOV_LIB=
 AC_SUBST(GCOV_LIB)

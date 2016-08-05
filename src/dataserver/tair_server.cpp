@@ -1073,11 +1073,11 @@ char *parse_cmd_line(int argc, char *const argv[])
         config_file = optarg;
         break;
       case 'V':
-        fprintf(stderr, "BUILD_TIME: %s %s\nSVN: %s\n", __DATE__, __TIME__, TAIR_SVN_INFO);
-        exit(1);
+        fprintf(stderr, "BUILD_TIME: %s %s\n       GIT: %s\n", __DATE__, __TIME__, TAIR_GIT_INFO);
+        exit(0);
       case 'h':
         print_usage(argv[0]);
-        exit(1);
+        exit(0);
     }
   }
   return config_file;

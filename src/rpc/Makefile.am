@@ -27,5 +27,5 @@ sbin_PROGRAMS=server_demo
 server_demo_LDADD=libtairrpc.a \
 			$(TBLIB_ROOT)/lib/libtbsys.a \
 			$(easy_dir)/lib64/libeasy.a \
-			-L/usr/lib64 -lprotobuf -lssl -lpthread -lrt -lz
+			-L/usr/lib64 -lprotobuf -lssl -lcrypto -lpthread -lrt -lz
 server_demo_SOURCES=server_demo.cpp

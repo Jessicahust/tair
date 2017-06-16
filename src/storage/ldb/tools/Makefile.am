@@ -7,7 +7,7 @@ ldb_libs=${ldb_path}/libldb.a ${ldb_path}/libleveldb.a ${top_builddir}/src/commo
 	${top_builddir}/src/common/libtair_common.a \
 	${top_builddir}/src/storage/mdb/.libs/libmdb.a \
 	$(easy_dir)/lib64/libeasy.a \
-	$(TBLIB_ROOT)/lib/libtbsys.a -lrt -lz -lssl
+	$(TBLIB_ROOT)/lib/libtbsys.a -lrt -lz -lssl -lcrypto
 
 util_srcs=ldb_util.cpp ldb_util.hpp
 
@@ -27,7 +27,7 @@ sbin_PROGRAMS=view_cache_stat \
 							statistics_verify
 
 view_cache_stat_SOURCES=view_cache_stat.cpp
-view_cache_stat_LDADD=${ldb_path}/libldb.a ${top_builddir}/src/common/libtair_common.a $(TBLIB_ROOT)/lib/libtbsys.a -lrt
+view_cache_stat_LDADD=${ldb_path}/libldb.a ${top_builddir}/src/common/libtair_common.a $(TBLIB_ROOT)/lib/libtbsys.a -lpthread -lrt
 
 ldb_rsync_SOURCES=ldb_rsync.cpp ${top_builddir}/src/dataserver/cluster_handler.cpp ${util_srcs}
 ldb_rsync_CPPFLAGS=${AM_CPPFLAGS} -I${top_srcdir}/src/packets -I${top_srcdir}/src/dataserver \

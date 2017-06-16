@@ -7,14 +7,14 @@ AM_CPPFLAGS= -I$(TBLIB_ROOT)/include/tbsys \
 AM_CXXFLAGS=-Werror
 
 AM_LDFLAGS= -rdynamic ${GCOV_LIB} \
-      -lssl -lz -lrt -lpthread \
-      -ldl
+            -lz -lrt -lpthread \
+            -ldl
 
 LDADD=$(TBLIB_ROOT)/lib/libtbsys.a \
       $(top_builddir)/src/plugin/libtair_plugins.a \
       $(top_builddir)/src/packets/libtair_packets.a \
       $(easy_dir)/lib64/libeasy.a \
-      $(top_builddir)/src/common/libtair_common.a
+      $(top_builddir)/src/common/libtair_common.a -lssl -lcrypto
 
 base_src=\
          stat_info.cpp \

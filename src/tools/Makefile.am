@@ -20,9 +20,9 @@ LDADD=$(top_srcdir)/src/client/.libs/libtairclientapi.a \
     $(TBLIB_ROOT)/lib/libtbsys.a \
     $(easy_dir)/lib64/libeasy.a \
     $(COMPRESS_LDFLAGS) \
-    -lz -lrt
+    -lz -lrt -lssl -lcrypto
 
-AM_LDFLAGS=-lpthread -lcurl -lssl -lz -lrt ${GCOV_LIB}
+AM_LDFLAGS=-lpthread -lcurl -lz -lrt ${GCOV_LIB}
 
 sbin_PROGRAMS=dump_transfer lens mtair parse_admin_conf
 

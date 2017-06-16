@@ -915,7 +915,7 @@ parse_cluster_string(std::vector<std::string>& infos, const char* line,
 {
   tair::common::string_util::split_str(line, separator, infos);
   if (infos.size() != 3) {
-    log_error(err_msg);
+    log_error("%s", err_msg);
     exit(1);
   }
 }

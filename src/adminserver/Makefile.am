@@ -20,7 +20,7 @@ LDADD=$(top_builddir)/src/client/.libs/libtairclientapi.a \
 			$(TBLIB_ROOT)/lib/libtbsys.a \
 			$(easy_dir)/lib64/libeasy.a \
 			-L/usr/lib64/mysql -lmysqlclient	\
-			-L/usr/lib64 -lprotobuf -lz -lrt -lssl -lpthread \
+			-L/usr/lib64 -lprotobuf -lz -lrt -lssl -lcrypto -lpthread \
 			-ldl
 
 sbin_PROGRAMS=tair_administrator

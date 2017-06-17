@@ -77,7 +77,7 @@ api_source_list=tair_client_api.cpp i_tair_client_impl.hpp i_tair_client_impl.cp
 		tair_client.hpp ${multi_cluster_impl_source}
 
 EASY_LIB= -L$(easy_dir)/lib64 -leasy
-COMMON_LOADFLAGS=-lpthread -lssl -lz -lrt -lsnappy ${GCOV_LIB} ${COMPRESS_LDFLAGS}
+COMMON_LOADFLAGS=-lpthread -lssl -lcrypto -lz -lrt ${GCOV_LIB} ${COMPRESS_LDFLAGS}
 
 lib_LTLIBRARIES=libtairclientapi.la libtairclientapi_c.la libtairclientapi_impl.la ${mc_impl_lib} ${mc_impl_c_lib}
 
@@ -118,13 +118,11 @@ BIN_LDADD= $(TBLIB_ROOT)/lib/libtbsys.a $(easy_dir)/lib64/libeasy.a $(top_buildd
 sbin_PROGRAMS=tairclient keycleantool manipulate_ds_to_cs
 
 tairclient_SOURCES=tair_client.cpp
-tairclient_LDADD= libtairclientapi_noinst.la ${READLINE_LOADFLAGS} ${BIN_LDADD}
-tairclient_LDFLAGS= -static ${COMMON_LOADFLAGS}
+tairclient_LDADD= libtairclientapi_noinst.la ${READLINE_LOADFLAGS} ${BIN_LDADD} ${COMMON_LOADFLAGS}
 
 keycleantool_SOURCES=tair_key_clean.cpp del_job.hpp nonblock_queue.hpp clean_worker.hpp config_loader.hpp
-keycleantool_LDADD= libtairclientapi_noinst.la ${BIN_LDADD}
-keycleantool_LDFLAGS= -static ${COMMON_LOADFLAGS}
+keycleantool_LDADD= libtairclientapi_noinst.la ${BIN_LDADD} ${COMMON_LOADFLAGS}
 
 manipulate_ds_to_cs_SOURCES=manipulate_ds_to_cs.cpp
-manipulate_ds_to_cs_LDADD= libtairclientapi_noinst.la ${BIN_LDADD}
-manipulate_ds_to_cs_LDFLAGS= -static ${COMMON_LOADFLAGS}
+manipulate_ds_to_cs_LDADD= libtairclientapi_noinst.la ${BIN_LDADD} ${COMMON_LOADFLAGS}
+

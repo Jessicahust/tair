@@ -43,7 +43,7 @@ char *get_config(const char *file)
 void write_conf(const char *file, const char *content)
 {
   FILE *fd = fopen(file, "w+");
-  fprintf(fd, content);
+  fprintf(fd, "%s", content);
   fclose(fd);
 }
 
@@ -58,7 +58,7 @@ int main(int argc, char *argv[])//argv[0]:main, argv[1]:input, argv[2]:output
   cout << "admin conf:" << output;
   if (output == NULL)
     return -1;
-  write_conf(argv[2], output); 
+  write_conf(argv[2], output);
   delete output;
   return 0;
 }

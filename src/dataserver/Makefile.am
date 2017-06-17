@@ -41,7 +41,7 @@ LDADD=$(top_builddir)/src/client/.libs/libtairclientapi.a \
 			$(top_builddir)/src/common/libtair_common.a \
 			$(TBLIB_ROOT)/lib/libtbsys.a \
 			$(easy_dir)/lib64/libeasy.a \
-			-lssl -lz -lrt -lpthread \
+			-lssl -lcrypto -lz -lrt -lpthread \
 			-ldl -lcurl
 
 

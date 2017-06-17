@@ -145,7 +145,7 @@ namespace tair {
         return TAIR_RETURN_FAILED;
       }
       for (i = 0; i < lines.size(); ++i) {
-        fprintf(fd, lines[i].c_str());
+        fprintf(fd, "%s", lines[i].c_str());
       }
       fclose(fd);
       if (0 == rename(tmpfile, group_file_name)) {
